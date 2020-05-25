@@ -1,0 +1,18 @@
+{
+  "name": "armo_app",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "V.Sheludkov",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.0"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
