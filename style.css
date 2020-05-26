@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Roboto';
+url('../fonts/Roboto-Regular.ttf') format('truetype'), font-weight: normal;
+url('../fonts/Roboto-Bold.ttf') format('truetype'), font-weight: bold;
+url('../fonts/Roboto-Light.ttf') format('truetype'), font-weight: lighter;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Roboto, sans-serif;
+    background: #d6e1eb;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    background: #093;
+    width: 100%;
+    height: 85px;
+    box-shadow: 0 9px 95px rgba(107, 135, 152, .55);
+    text-align: center;
+}
+
+.setting {
+    background-image: url("./resource/img/settings_icon.svg");
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+
+}
+
+.server__status {
+    font-size: 10px;
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.server__status__indicator {
+    width: 30px;
+    height: 10px;
+    background-color: #00ff02;
+    border: 1px solid #FFFFFF;
+
+}
+
+.content {
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 85px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.get__area, .post__area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+
+}
+.get__area__show{
+    border-bottom: 2px solid #FFFFFF;
+    width: 400px;
+    height: 5vh;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.get__area__show span {
+    font-family: Roboto, sans-serif;
+    font-size: 36px;
+    line-height: 0px;
+    color: #000000;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.post__area__input {
+    border: none;
+    outline: none;
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 30px;
+    margin-bottom: 10px;
+
+}
+
+
+
+button:active, button:focus {
+    outline: none;
+}
+
+button {
+    padding: 0;
+    border: none;
+    color: #FFFFFF;
+    background-color: #093;
+    font: inherit;
+    font-weight: lighter;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006325;
+}
+
+button:active {
+    border: #005c24;
+    transform: translateY(1px);
+}
+
+footer {
+    font-size: 18px;
+    background: #8bc3e7;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    box-shadow: 0 9px 95px rgba(107, 135, 152, .55);
+    text-align: center;
+}

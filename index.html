@@ -2,22 +2,48 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ARMO app</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
-<div>
-    <span id="showResponseData"></span>
-    <button id='getDataButton'>get data</button>
+<header>
+    <div class="setting">
+    </div>
+    <div>
+        <h1>Armo</h1>
+    </div>
+    <div class="server__status">
+        <div class="server__status__indicator"></div>
+        <span>status</span>
+    </div>
+</header>
+<div class="content">
+    <div class="get__area">
+        <div class="get__area__show">
+            <span id="showResponseData"></span>
+        </div>
+
+        <button id='getDataButton'>get data</button>
+
+    </div>
+    <div class="post__area">
+        <div>
+            <label for='inputDataArea'></label>
+            <input type="text" id='inputDataArea' class="post__area__input"/>
+        </div>
+        <button id='postDataButton'>post data</button>
+    </div>
 </div>
-<div>
-    <label for='inputDataArea'></label>
-    <input type="text" id='inputDataArea'/>
-    <button id='postDataButton'>post data</button>
-</div>
+<footer>
+
+</footer>
+
 <script src="render.js">
 </script>
 </body>

@@ -2,7 +2,7 @@ const electron = require('electron');
 const path = require('path');
 const url = require('url');
 const {app, BrowserWindow} = require('electron');
-const { ipcMain } = require('electron');
+const {ipcMain} = require('electron');
 const request = require('request');
 
 
@@ -11,9 +11,9 @@ let win;
 const createWindow = () => {
     win = new BrowserWindow({
         width: 600,
-        height: 400,
+        height: 500,
         minWidth: 600,
-        minHeight: 400,
+        minHeight: 500,
         icon: __dirname + '/resource/img/icon.png',
         webPreferences: {
             nodeIntegration: true
@@ -25,7 +25,7 @@ const createWindow = () => {
         slashes: true
     }));
 
-    win.webContents.openDevTools();
+//    win.webContents.openDevTools();
 
     win.on('closed', () => {
         win = null
@@ -34,11 +34,15 @@ const createWindow = () => {
 
 ipcMain.on('getData', function (event) {
     console.log('ipc work');
-    getData()
+    getData();
+    event.sender.send('replyFromGet', responseData)
+
+
 });
-ipcMain.on('postData', function (event, rettr) {
+ipcMain.on('postData', function (event, inputDataArea) {
     console.log('ipc post work');
-    postData(rettr)
+    postData(inputDataArea);
+    event.reply('replyFromPost', responseData)
 });
 
 app.on('ready', createWindow);
@@ -47,33 +51,38 @@ app.on('window-all-closed', () => {   //close app on macOs
     app.quit();
 });
 
+let responseData;
+
 const getData = () => {
     request(
         'http://localhost:8888/data',
         {json: true},
         (err, res, body) => {
-        if (err) {
-            return console.log(err);
+            if (err) {
+                return console.log(err);
+            }
+            responseData = body;
+            console.log(body);
+
         }
-        console.log(body);
-    });
+    )
 };
 
-let makePostData = {
-    data: 'some'
-};
-
-const postData = () => {
+const postData = (data) => {
+    let createDataObject = {
+        data: data
+    };
     request.post({
-        url: 'http://localhost:8888/post',
-        json: true,
-        body: makePostData},
+            url: 'http://localhost:8888/post',
+            json: true,
+            body: createDataObject
+        },
         (err, res, body) => {
             if (err) {
-            return console.log(err);
+                return console.log(err);
+            }
+            responseData = body
         }
-        console.log(body);
-
-    });
+    )
 };
 
