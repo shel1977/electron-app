@@ -44,12 +44,19 @@ header {
 
 }
 
-.indicator {
+.indicator{
     width: 20px;
     height: 20px;
     margin-right: 20px;
     border-radius: 10px;
     background-color: #093;
+}
+.indicator__red {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: #99081b;
 }
 
 .content {
