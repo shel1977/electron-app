@@ -1,18 +1,19 @@
 const axios = require('axios');
-const {ipcRenderer} = require('electron');
-const request = require('request');
-
 
 const getDataButton = document.getElementById('getDataButton');
 const postDataButton = document.getElementById('postDataButton');
+
+
 const showServerStatus = (response) => {
     let setColor = document.getElementById('indicator');
-    if (response.status === 200){
-        setColor.className = 'indicator'
+    let serverText = document.getElementById('server__status__text');
+    if (response.status === 200) {
+        setColor.className = 'indicator';
+        serverText.innerHTML = 'connect'
     } else {
-        setColor.className = 'indicator__red'
+        setColor.className = 'indicator__red';
+        serverText.innerHTML = response
     }
-
 };
 
 getDataButton.addEventListener('click', function () {
@@ -31,9 +32,10 @@ const showFunc = (value) => {
 };
 
 
-
+//Api
 const getData = () => {
-    axios.get('http://localhost:8888/data')
+    let setting = window.state;
+    axios.get(`${setting.serverURL}:${setting.serverPort}/data`)
         .then((response) => {
             console.log(response.data.data);
             showFunc(response.data.data)
@@ -41,16 +43,18 @@ const getData = () => {
 };
 
 const postData = (text) => {
-    axios.post('http://localhost:8888/post',
+    let setting = window.state;
+    axios.post(`${setting.serverURL}:${setting.serverPort}/post`,
         {data: text})
         .then((response) => {
             showFunc(response.data.info)
         });
 };
 
+//Show server status
 const status = setInterval(() => {
-
-    axios.get('http://localhost:8888/')
+    let setting = window.state;
+    axios.get(`${setting.serverURL}:${setting.serverPort}`)
         .then((response) => {
             showServerStatus(response);
             console.log(response.status)
@@ -59,6 +63,4 @@ const status = setInterval(() => {
             showServerStatus(error);
             console.log(error)
         })
-
 }, 3000);
-

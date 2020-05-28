@@ -41,7 +41,6 @@ header {
     width: 20px;
     height: 20px;
     margin-left: 20px;
-
 }
 
 .indicator{
@@ -57,9 +56,6 @@ header {
     margin-right: 20px;
     border-radius: 10px;
     background-color: #99081b;
-}
-
-.content {
 }
 
 h1 {
@@ -102,10 +98,7 @@ h1 {
     width: 400px;
     height: 30px;
     margin-bottom: 10px;
-
 }
-
-
 
 button:active, button:focus {
     outline: none;
@@ -148,3 +141,4 @@ footer {
     color: #FFFFFF;
     margin-right: 20px;
 }
+

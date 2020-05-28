@@ -2,17 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ARMO app</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="setting_style.css">
 
 </head>
 <body>
 <header>
-    <div class="setting">
+    <div class="setting" id="setting">
     </div>
     <div>
         <h1>Armo</h1>
@@ -42,11 +44,24 @@
 <footer>
     <div class="server__status">
         <span>status</span>
-        <span id="server__status__text">connect</span>
+        <span id="server__status__text"></span>
     </div>
 </footer>
-
-<script src="render.js">
-</script>
+<div class="setting_wrapper" id="setting_menu">
+    <div class="setting_menu">
+        <h2>SETTING</h2>
+        <label for="settingPort">Server Port</label>
+        <input type="text" id="settingPort" class="setting__input" placeholder="default 8888"/>
+        <label for="settingUrl">Server URL</label>
+        <input type="text" id="settingUrl" class="setting__input" placeholder="default http://localhost"/>
+        <div class="button__block">
+            <button class="setting__button" id="settingBtnSave">save</button>
+            <button class="setting__button" id="settingBtnReset">reset</button>
+            <button class="setting__button" id="settingBtnClose">close</button>
+        </div>
+    </div>
+</div>
+<script src="render.js"></script>
+<script src="setting.js"></script>
 </body>
 </html>

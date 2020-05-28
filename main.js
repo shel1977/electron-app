@@ -1,13 +1,8 @@
-const electron = require('electron');
 const path = require('path');
 const url = require('url');
 const {app, BrowserWindow} = require('electron');
-const {ipcMain} = require('electron');
-
-
 
 let win;
-
 const createWindow = () => {
     win = new BrowserWindow({
         width: 600,
@@ -37,5 +32,4 @@ app.on('ready', createWindow);
 app.on('window-all-closed', () => {   //close app on macOs
     app.quit();
 });
-
 
